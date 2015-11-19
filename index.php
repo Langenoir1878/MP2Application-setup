@@ -4,10 +4,21 @@
  * Date: 10/25/2015
  * Time: 16:49:14 pm
  * @ Galvin Library 2 FL
+ *
+ * updated on Nov 19, 2015
+ * added session control: authentication login page
  * 
  */
 
-session_start(); ?>
+namespace langenoir1878;
+session_start();
+
+if(!isset($_SESSION['user']))
+{
+    header("Location: login.php");
+    exit;
+}
+?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">

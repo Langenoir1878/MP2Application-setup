@@ -6,10 +6,40 @@
  * ITMO 544 MP 1
  *
  */
+?>
+<DOCTYPE html>
+  <html lang="en">
 
+<style>
+.lay_content {
+    background-image: url("bg.png");
+    background-size: 1200px 571px;
+    background-color: black;
+  font-style: oblique;
+    padding: 187px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.left_side {
+    margin-left: 10px;
+    width: 98%;
+    border:1px solid #00FF00;
+}
 
+</style>
 
-// Start the session^M
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <title>Setup</title>
+</head>
+
+<body>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" title="Style">
+    <div class = "lay_content" align = "center" >
+      <font color = "yellow">
+<?php
+// Start the session
 require 'vendor/autoload.php';
 use Aws\Rds\RdsClient;
 #$rds = new Aws\Rds\RdsClient(array(
@@ -21,62 +51,7 @@ $client = RdsClient::factory(array(
   'region'=>'us-east-1'
 ));
 
-#$result = $rds->createDBInstance([
- #   'AllocatedStorage' => 10,
-  #  'AutoMinorVersionUpgrade' => true || false,
-    #'AvailabilityZone' => '<string>',
-    #'BackupRetentionPeriod' => <integer>,
-   # 'CharacterSetName' => '<string>',
-   # 'CopyTagsToSnapshot' => true || false,
-   # 'DBClusterIdentifier' => '<string>',
-    //'DBInstanceClass' => 'db.t1.micro', // REQUIRED
-    //'DBInstanceIdentifier' => 'mp1-jrh', // REQUIRED
- # 'DBInstanceClass' => 'db.t1.micro', // REQUIRED
- # ===========================================================
- # 'DBInstanceIdentifier' => 'SIMMON-THE-CAT-DB', // REQUIRED
- # ===========================================================
-    //'DBName' => 'customerrecords',
-    #'DBParameterGroupName' => '<string>',
-    #'DBSecurityGroups' => ['<string>', ...],
-    #'DBSubnetGroupName' => '<string>',
-#    'Engine' => 'MySQL', // REQUIRED
- #   'EngineVersion' => '5.5.41',
-    #'Iops' => <integer>,
-    #'KmsKeyId' => '<string>',
-   # 'LicenseModel' => '<string>',
-  //'MasterUserPassword' => 'letmein888',
-    //'MasterUsername' => 'controller',
-#    'MasterUserPassword' => 'hesaysmeow',
- #   'MasterUsername' => 'LN1878',
-    #'MultiAZ' => true || false,
-    #'OptionGroupName' => '<string>',
-    #'Port' => <integer>,
-    #'PreferredBackupWindow' => '<string>',
-    #'PreferredMaintenanceWindow' => '<string>',
- #  'PubliclyAccessible' => true,
-   #'StorageEncrypted' => true || false,
-   #'StorageType' => '<string>',
-   # 'Tags' => [
-   #     [
-   #         'Key' => '<string>',
-   #         'Value' => '<string>',
-   #     ],
-        // ...
-   # ],
-    #'TdeCredentialArn' => '<string>',
-    #'TdeCredentialPassword' => '<string>',
-   # 'VpcSecurityGroupIds' => ['<string>', ...],
-#]);
 
-#print "Create RDS DB results: \n";
-# print_r($rds);
-#$result = $rds->waitUntil('DBInstanceAvailable',['DBInstanceIdentifier' => 'SIMMON-THE-CAT-DB']);
-// Create a table 
-# ====================================
-#$result = $rds->describeDBInstances([
-#    'DBInstanceIdentifier' => 'SIMMON-THE-CAT-DB'
-#]);
-# ====================================
 # updated Nov 13, for testing $client
 $result = $client->describeDBInstances(array(
 	'DBInstanceIdentifier'=>'simmon-the-cat-db'
@@ -85,7 +60,7 @@ $result = $client->describeDBInstances(array(
 $endpoint = $result['DBInstances'][0]['Endpoint']['Address'];
 #print "============\n". $endpoint . "================\n";
 
-echo "begin database";
+#echo "begin database";
 $link = new mysqli($endpoint,"LN1878","hesaysmeow","simmoncatdb") or die("Error in line 89 in setup.php" . mysqli_error($link)); 
 
 /* check connection */
@@ -121,3 +96,10 @@ else { echo "Create table failed"; }
 $link->close();
 
 ?>
+</font>
+<br><br>
+<font color = "#00FF00"><h1><a href="index.php"> * Index * </a></h1></font>
+</div>
+
+</body>
+</html>

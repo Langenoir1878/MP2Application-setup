@@ -4,7 +4,17 @@
  * Gallery.php
  * Last updated: Nov 15,2015
  */
+
+namespace langenoir1878;
+
 session_start();
+
+if(!isset($_SESSION['user']))
+{
+    header("Location: login.php");
+    exit;
+}
+
 $email = $_POST["email"];
 # Found this error finally on Nov 15 !!!!!!!! missed '_'!!!!!!!
 

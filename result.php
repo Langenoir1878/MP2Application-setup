@@ -8,12 +8,20 @@
  * ITMO 544 MP 1
  * updated passwords & username
  * Nov 4, 2015
+ * login added on Nov 19
  */
 
 
 
 // Start the session
+
+namespace langenoir1878;
 session_start();
+if(!isset($_SESSION['user']))
+{
+    header("Location: login.php");
+    exit;
+}
 // In PHP versions earlier than 4.1.0, $HTTP_POST_FILES should be used instead
 // of $_FILES.
 ?>
