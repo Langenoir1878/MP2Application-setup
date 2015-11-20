@@ -1,0 +1,33 @@
+
+//SNS
+$sns = new Aws\Sns\SnsClient(array(
+    'version' => 'latest',
+    'region'  => 'us-east-1'
+));
+#echo "line 166 in result.php, the sns is: " . $sns;
+
+$Arn = $sns->createTopic(array(
+    'Name' => 'mp2'
+));
+#echo "line 170 in result.php, the arn is: " . $Arn;
+
+#echo "Obtaining useremail: " . $myEmail;
+
+$subscribe = $sns->subscribe(array(
+    'Protocol' => 'email',
+    #'Endpoint' => $myEmail,
+    'Endpoint'=>"yzhan214@hawk.iit.edu",
+    'TopicArn' => $Arn['TopicArn'],
+));
+
+//updated Nov 20, 2015
+$topicAttributes = $sns->setTopicAttributes(array(
+    'AttributeName' => 'DisplayName',
+    'AttributeValue' => 'mp2' ,
+    'TopicArn' => $Arn['TopicArn'],
+));
+
+$publisher = $sns->publish(array(
+    'Message' => 'testing pulisher msg',
+    'TopicArn' => $Arn['TopicArn']
+));
