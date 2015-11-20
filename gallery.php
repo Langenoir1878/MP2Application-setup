@@ -117,6 +117,8 @@ $email = $_POST["email"];
     while ($row = $res->fetch_assoc()) {
         #adding effects here
     $urlINFO = "<img src =\" " . $row['RAWS3URL'] . "\" />";
+    //putting into CSS container
+    $srcSTR =  htmlspecialchars($row['RAWS3URL']);
     #$tobeadded = "<img src =\" " . $row['FINISHEDS3URL'] . "\"/>";
     #echo $urlINFO;
     #print "----------- line 110 in Gallery -----------";
@@ -127,15 +129,25 @@ $email = $_POST["email"];
     #$link->close();
      
     
-	?></font>
+	?>
+    <?php 
+    /* commenting out testing frames
+    </font>
 	<br>
 	<font color="#00FF00">&nbsp;&nbsp;  Uploaded image: <br>
-	<?php echo $urlINFO; ?>
+	<?php #echo $urlINFO; ?>
 	</font> 
 	<br>
 		<font color = "white">&nbsp;&nbsp; Record info: <br>
-		<?php echo $imageSTR; ?>
+		<?php echo #$imageSTR; ?>
 	</font>
+    */ 
+    ?>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="<?php $srcSTR; ?>">
+                </a>
+            </div>
 
 <?php
 //reopen the php tag to end the while loop
