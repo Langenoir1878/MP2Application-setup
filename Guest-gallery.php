@@ -5,9 +5,9 @@
  * Last updated: Nov 15,2015
  */
 
-session_start();
+//session_start();
 
-$email = $_POST["email"];
+//$email = $_POST["email"];
 
 
 ?>
