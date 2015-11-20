@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <div class="left_align">
 	<br>
-		<form action="index.php" method="POST">
+		<form action="#" method="POST">
 			<h1><font color = "white"> Please sign in: </font></h1>
 			<br>
 			<label><font color = "white">Username: &nbsp;</font><input type="text" name="username" style="color: white; background-color: transparent;"></label><br>
