@@ -187,7 +187,7 @@ $topicAttributes = $sns->setTopicAttributes(array(
 ));
 
 $publisher = $sns->publish(array(
-    'Message' => 'testing pulisher msg',
+    'Message' => 'Thank you for subscribing!',
     'TopicArn' => $Arn['TopicArn']
 ));
 
