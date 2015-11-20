@@ -85,7 +85,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				<br><br><br>
 			</font>
 			
-			<input type="submit" value = "Login">
+			<input type="submit" value = "Login & Subscribe!"> 
+			&nbsp;&nbsp;&nbsp; 
+			<font color = "blue">
+			<a href = "Guest-login.php"> Continue as a guest </a>
+			</font>
 			<br>
 		</form>
 </div>
