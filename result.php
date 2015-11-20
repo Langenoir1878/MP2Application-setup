@@ -163,18 +163,19 @@ $sns = new Aws\Sns\SnsClient(array(
     'version' => 'latest',
     'region'  => 'us-east-1'
 ));
-echo "line 166 in result.php, the sns is: " . $sns;
+#echo "line 166 in result.php, the sns is: " . $sns;
 
 $Arn = $sns->createTopic(array(
     'Name' => 'mp2'
 ));
-echo "line 170 in result.php, the arn is: " . $Arn;
+#echo "line 170 in result.php, the arn is: " . $Arn;
 
-echo "Obtaining useremail: " . $myEmail;
+#echo "Obtaining useremail: " . $myEmail;
 
 $subscribe = $sns->subscribe(array(
     'Protocol' => 'email',
-    'Endpoint' => $myEmail,
+    #'Endpoint' => $myEmail,
+    'Endpoint'=>"yzhan214@hawk.iit.edu",
     'TopicArn' => $Arn['TopicArn'],
 ));
 
@@ -190,7 +191,8 @@ $publisher = $sns->publish(array(
     'TopicArn' => $Arn['TopicArn']
 ));
 
-echo "line 193 in result.php, publish message: " . $pulisher;
+
+#echo "line 193 in result.php, publish message: " . $pulisher;
 
 
 
@@ -215,9 +217,6 @@ $link->close();
 //  Add code to update database to UPDATE status column to 1 (in progress)
 ?>
 </div>
-<p>
-    subscribe instructions to be added in the login page...
-</p><br>
 
 </body>
 </html>
