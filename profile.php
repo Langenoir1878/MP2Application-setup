@@ -35,7 +35,7 @@
 <link rel="stylesheet" type="text/css" href="stylesheet.css" title="Style">
 
 <div style="text-align:left;">
-<a href="index.php" class="btn btn-primary btn-lg active" role="button"> <h2> &nbsp;&nbsp; >.< DON'T CLICK HERE ! </h2> </a>
+<a href="index.php" class="btn btn-primary btn-lg active" role="button"> <h2> &nbsp;&nbsp; Index </h2> </a>
 </div>
 </div>
 <div class = "lay_content" align = "center">

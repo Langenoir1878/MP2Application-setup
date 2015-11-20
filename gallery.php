@@ -78,7 +78,7 @@ $email = $_POST["email"];
 </head>
 
 <body background = "bg.png">
-    <font color = "#00FF00"> <h1 class="page-header"> Photo Gallery </h1> </font>
+    <font color = "#00FF00"> <h1 class="page-header">&nbsp;&nbsp;&nbsp;&nbsp; Photo Gallery </h1> </font>
 
     <p><font color = "white"><?php #print "Enter the php section . . . "; ?></font></p>
     
