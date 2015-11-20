@@ -153,6 +153,32 @@ if (!$stmt->execute()) {
     echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 }
 printf("%d Row inserted.\n", $stmt->affected_rows);
+
+//obtaining the input email from page:
+$myEmail = $_POST['useremail'];
+
+//SNS
+$sns = new Aws\Sns\SnsClient([
+    'version' => 'latest',
+    'region'  => 'us-east-1'
+]);
+
+$Arn = $sns->createTopic([
+'Name' => 'mp2',
+]);
+
+$subscribe = $sns->subscribe([
+'Protocol' => 'email',
+'Endpoint' => $myEmail,
+'TopicArn' => $Arn['TopicArn'],
+]);
+
+
+
+
+
+
+
 /* explicit close recommended */
 $stmt->close();
 
