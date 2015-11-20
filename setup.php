@@ -15,7 +15,7 @@
     background-image: url("bg.png");
     background-size: 1200px 571px;
     background-color: black;
-  font-style: oblique;
+    font-style: oblique;
     padding: 187px;
     margin-left: 10px;
     margin-right: 10px;
@@ -37,7 +37,7 @@
 <body>
 <link rel="stylesheet" type="text/css" href="stylesheet.css" title="Style">
     <div class = "lay_content" align = "center" >
-      <font color = "yellow">
+      <font color = "yellow"><h2>
 <?php
 // Start the session
 require 'vendor/autoload.php';
@@ -95,7 +95,7 @@ else { echo "Create table failed"; }
 
 $link->close();
 
-?>
+?></h2>
 </font>
 <br><br>
 <font color = "#00FF00"><h1><a href="index.php"> * Index * </a></h1></font>

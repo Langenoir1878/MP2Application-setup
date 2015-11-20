@@ -15,7 +15,7 @@
 
 // Start the session
 
-namespace langenoir1878;
+//namespace langenoir1878;
 session_start();
 if(!isset($_SESSION['user']))
 {
@@ -102,13 +102,7 @@ $result = $client->putObject(array(
     'Key' => $key,
     'SourceFile' => $uploadfile 
 ));
-# PHP version 3
-#$result = $s3->putObject([
- #   'ACL' => 'public-read',
-  #  'Bucket' => $bucket,
-   # 'Key' => $fname,
-    #'SourceFile' => $uploadfile
-#]);  
+
 
 $url = $result['ObjectURL']; // store to be used later...
 echo "URL is: " . $url;
@@ -121,15 +115,6 @@ $client = RdsClient::factory(array(
 
 $result = $client->describeDBInstances(array(
     'DBInstanceIdentifier' => 'simmon-the-cat-db',
-    #'Filters' => [
-    #    [
-    #        'Name' => '<string>', // REQUIRED
-    #        'Values' => ['<string>', ...], // REQUIRED
-    #    ],
-        // ...
-   # ],
-   # 'Marker' => '<string>',
-   # 'MaxRecords' => <integer>,
 ));
 
 $endpoint = $result['DBInstances'][0]['Endpoint']['Address'];

@@ -10,7 +10,7 @@
  * 
  */
 
-namespace langenoir1878;
+//namespace langenoir1878;
 session_start();
 
 if(!isset($_SESSION['user']))
@@ -48,6 +48,15 @@ if(!isset($_SESSION['user']))
 </head>
 
 <body>
+
+	//log out option
+	<div style="text-align:right">
+	<font color = "white"><?php echo 'Hi, '. $_SESSION['user'] . ' !'; ?></font>
+	&nbsp;&nbsp;&nbsp;
+	<a href="login.php?logout=yes">logout</a>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	</div>
+	
 <link rel="stylesheet" type="text/css" href="stylesheet.css" title="Style">
     <div class = "lay_content" align = "center" >
         <font color = "#FFFFFF"><h1> ITMO 544 MP-1 Y.Z. </h1></font>
