@@ -1,0 +1,6 @@
+TO IMPROVE:
+
+1. add "send message" lable in the gallery to test subscription
+2. replace "yzhan214@hawk.iit.edu" with user email
+3. adjust the CSS image containers to fixed size for displaying
+4. modify the Guest-gallery web page
