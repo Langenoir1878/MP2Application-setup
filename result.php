@@ -145,7 +145,7 @@ $STATE =0;
 date_default_timezone_set('America/Chicago');
             #$myDate = date('j M Y - h:i:s A');
 $TIMESTR= "Current time: " . date('j M Y - h:i:s A');
-print "line 154 in result.php can be reached if printed out. Preparing for binding";
+//print "line 154 in result.php can be reached if printed out. Preparing for binding";
 $stmt->bind_param("ssssssis",$USERNAME,$EMAIL,$PHONE,$RAWS3URL,$IMGNAME,$FINISHEDS3URL,$STATE,$TIMESTR);
 
 
@@ -156,26 +156,41 @@ printf("%d Row inserted.\n", $stmt->affected_rows);
 
 //obtaining the input email from page:
 $myEmail = $_POST['useremail'];
+//echo $myEmail;
 
 //SNS
-$sns = new Aws\Sns\SnsClient([
+$sns = new Aws\Sns\SnsClient(array(
     'version' => 'latest',
     'region'  => 'us-east-1'
-]);
+));
+echo "line 166 in result.php, the sns is: " . $sns;
 
-$Arn = $sns->createTopic([
+$Arn = $sns->createTopic(array(
     'Name' => 'mp2'
-]);
+));
+echo "line 170 in result.php, the arn is: " . $Arn;
 
-$subscribe = $sns->subscribe([
+echo "Obtaining useremail: " . $myEmail;
+
+$subscribe = $sns->subscribe(array(
     'Protocol' => 'email',
     'Endpoint' => $myEmail,
     'TopicArn' => $Arn['TopicArn'],
-]);
+));
 
+//updated Nov 20, 2015
+$topicAttributes = $sns->setTopicAttributes(array(
+    'AttributeName' => 'DisplayName',
+    'AttributeValue' => 'mp2' ,
+    'TopicArn' => $Arn['TopicArn'],
+));
 
+$publisher = $sns->publish(array(
+    'Message' => 'testing pulisher msg',
+    'TopicArn' => $Arn['TopicArn']
+));
 
-
+echo "line 193 in result.php, publish message: " . $pulisher;
 
 
 
