@@ -215,6 +215,9 @@ $link->close();
 //  Add code to update database to UPDATE status column to 1 (in progress)
 ?>
 </div>
+<p>
+    subscribe instructions to be added in the login page...
+</p><br>
 
 </body>
 </html>
