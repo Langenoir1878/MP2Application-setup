@@ -5,30 +5,6 @@
  * added session control on Nov 19, 2015
  * 16:49:51 pm @ PS 3001- 718
  */
-//namespace langenoir1878;
-
-session_start();
-//require_once 'credentials.php';
-if (isset($_GET['logout'])) {
-	session_destroy();
-}
-if(isset($_SESSION['user']))
-{
-    header("Location: index.php");
-    exit;
-}
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	// Shorten Request Variables if they are set
-	$username = isset($_POST['username']) ? trim($_POST['username']) : '';
-	$password = isset($_POST['password']) ? trim($_POST['password']) : '';
-	$valid_user = 'Yiming';
-	$valid_hash = '$2y$10$XwCIua.7devIMB8M2nWb1OGG19co13hZZUDofh4zcs6aMHb5MC.mK';//hashed password
-	if ($username == $valid_user && password_verify($password, $valid_hash)) {
-		$_SESSION['user'] = $valid_user;
-		header("Location: index.php");
-    	exit;
-	}
-}
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -67,25 +43,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <div class="left_align">
 	<br>
-		<form action="#" method="POST">
-			<h1><font color = "white"> Please sign in: </font></h1>
+		<form action="Guest-index.php" method="POST">
+			<h1><font color = "white"> Welcome! Guest!</font></h1>
 			<br>
-			<label><font color = "white">Username: &nbsp;</font><input type="text" name="username" style="color: white; background-color: transparent;"></label><br>
-			<br>
-			<label><font color="white">Password: &nbsp;</font><input type="password" name="password" style="color: white; background-color: transparent;"></label><br>
-			<br><br><br>
+			
 			<font color = "white">
 				<h1>Testing Instruction:</h1><br>
-				<p>Username: Yiming</p>
-				<p>Password: ZHANG (case sensitive)</p><br>
-				<p>This page will automatically prepare the database for user after login.</p>
-				<p>Please fill in the above fields for testing.</p><br>
+				<p>This is the guest page</p>
+				<p>The guest system won't automatically subscribe to this application</p><br>
+				<p>This page will automatically prepare the database for user</p>
+				<p>Please <a href= "login.php"> Log In </a> & subscribe! </p><br>
 				<p><font color = "grey"> ITMP 544 MP-2 15Fall </font></p>
 				<br>
 				<br><br><br>
 			</font>
 			
-			<input type="submit" value = "Login">
+			<input type="submit" value = "Continue as Guest">
 			<br>
 		</form>
 </div>
