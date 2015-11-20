@@ -7,13 +7,13 @@
 
 //namespace langenoir1878;
 
-session_start();
+//session_start();
 
-if(!isset($_SESSION['user']))
-{
-    header("Location: login.php");
-    exit;
-}
+//if(!isset($_SESSION['user']))
+//{
+  //  header("Location: login.php");
+    //exit;
+//}
 
 $email = $_POST["email"];
 # Found this error finally on Nov 15 !!!!!!!! missed '_'!!!!!!!
@@ -54,9 +54,13 @@ $email = $_POST["email"];
                 </button>
                 <a class="navbar-brand" href="#">
                     <?php 
-                        print $email ;
+                    //generate a random id for guest and display:
+                    $randID = int rand(1000,2000);
+                    print "Welcome, guest_" . $randID . " !";
+                        //print $email ;
                     ?>
                 </a>
+        
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -66,7 +70,10 @@ $email = $_POST["email"];
                         <a href="index.php">INDEX</a>
                     </li>
                     <li>
-                        <a href="profile.php">PROFILE</a>
+                        <a href="profile.php">Designer PROFILE</a>
+                    </li>
+                    <li>
+                        <a href="login.php"> Login & Subscribe </a>
                     </li>
                 </ul>
             </div>
