@@ -155,23 +155,25 @@ if (!$stmt->execute()) {
 printf("%d Row inserted.\n", $stmt->affected_rows);
 
 //obtaining the input email from page:
-#$myEmail = $_POST['useremail'];
+$myEmail = $_POST['useremail'];
 
 //SNS
-#$sns = new Aws\Sns\SnsClient([
-#    'version' => 'latest',
- #   'region'  => 'us-east-1'
-#]);
+$sns = new Aws\Sns\SnsClient([
+    'version' => 'latest',
+    'region'  => 'us-east-1'
+]);
 
-#$Arn = $sns->createTopic([
-#'Name' => 'mp2',
-#]);
+$Arn = $sns->createTopic([
+    'Name' => 'mp2'
+]);
 
-#$subscribe = $sns->subscribe([
-#'Protocol' => 'email',
-#'Endpoint' => $myEmail,
-#'TopicArn' => $Arn['TopicArn'],
-#]);
+$subscribe = $sns->subscribe([
+    'Protocol' => 'email',
+    'Endpoint' => $myEmail,
+    'TopicArn' => $Arn['TopicArn'],
+]);
+
+
 
 
 
