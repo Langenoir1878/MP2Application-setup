@@ -5,7 +5,7 @@
  * added session control on Nov 19, 2015
  * 16:49:51 pm @ PS 3001- 718
  */
-namespace langenoir1878;
+//namespace langenoir1878;
 
 session_start();
 //require_once 'credentials.php';
@@ -14,7 +14,7 @@ if (isset($_GET['logout'])) {
 }
 if(isset($_SESSION['user']))
 {
-    header("Location: setup.php");
+    header("Location: index.php");
     exit;
 }
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <div class="left_align">
 	<br>
-		<form action="setup.php" method="POST">
+		<form action="index.php" method="POST">
 			<h1><font color = "white"> Please sign in: </font></h1>
 			<br>
 			<label><font color = "white">Username: &nbsp;</font><input type="text" name="username" style="color: white; background-color: transparent;"></label><br>

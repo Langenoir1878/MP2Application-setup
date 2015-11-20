@@ -20,6 +20,62 @@ if(!isset($_SESSION['user']))
 }
 ?>
 
+<?php
+// setting up the db table
+require 'vendor/autoload.php';
+use Aws\Rds\RdsClient;
+
+$client = RdsClient::factory(array(
+  'version'=>'latest',
+  'region'=>'us-east-1'
+));
+
+
+# updated Nov 13, for testing $client
+$result = $client->describeDBInstances(array(
+	'DBInstanceIdentifier'=>'simmon-the-cat-db'
+	));
+
+$endpoint = $result['DBInstances'][0]['Endpoint']['Address'];
+#print "============\n". $endpoint . "================\n";
+
+#echo "begin database";
+$link = new mysqli($endpoint,"LN1878","hesaysmeow","simmoncatdb") or die("Error in line 89 in setup.php" . mysqli_error($link)); 
+
+/* check connection */
+
+if (mysqli_connect_errno()) {
+
+    printf("Connect failed: %s\n", mysqli_connect_error());
+
+    exit();
+  }
+
+#echo "Here is the result: " . $link;
+$sqlSTETEMENTstr='CREATE TABLE CAT_TABLE 
+(
+ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+USERNAME VARCHAR(32),
+EMAIL VARCHAR(100),
+PHONE VARCHAR(30),
+RAWS3URL VARCHAR(500),
+FINISHEDS3URL VARCHAR(500),
+IMGNAME VARCHAR(100),
+STATE TINYINT(3) CHECK(STATE IN (0,1,2)),
+TIMESTR VARCHAR(50) 
+)';
+
+$debug = $link->query($sqlSTETEMENTstr);
+
+if ($debug){
+  $successMsg = "CAT_TABLE created";
+} 
+else { $failureMsg = "Create table failed"; }
+
+$link->close();
+
+?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
@@ -60,6 +116,7 @@ if(!isset($_SESSION['user']))
 <link rel="stylesheet" type="text/css" href="stylesheet.css" title="Style">
     <div class = "lay_content" align = "center" >
         <font color = "#FFFFFF"><h1> ITMO 544 MP-1 Y.Z. </h1></font>
+        <p><?php echo $successMsg . $failureMsg ;?></p>
     </div>
     <div class = "left_side">
 
