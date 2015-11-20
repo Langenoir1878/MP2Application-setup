@@ -5,18 +5,9 @@
  * Last updated: Nov 15,2015
  */
 
-//namespace langenoir1878;
-
-//session_start();
-
-//if(!isset($_SESSION['user']))
-//{
-  //  header("Location: login.php");
-    //exit;
-//}
+session_start();
 
 $email = $_POST["email"];
-# Found this error finally on Nov 15 !!!!!!!! missed '_'!!!!!!!
 
 
 ?>
@@ -57,7 +48,7 @@ $email = $_POST["email"];
                     //generate a random id for guest and display:
                     $randID = int rand(1000,2000);
                     print "Welcome, guest_" . $randID . " !";
-                        //print $email ;
+
                     ?>
                 </a>
         
@@ -67,13 +58,13 @@ $email = $_POST["email"];
                 <ul class="nav navbar-nav">
                     <!--deleted additional useless button on Nov 18, 2015-->
                     <li>
-                        <a href="index.php">INDEX</a>
+                        <a href="Guest-index.php">INDEX</a>
                     </li>
                     <li>
-                        <a href="profile.php">Designer PROFILE</a>
+                        <a href="Guest-profile.php">Designer PROFILE</a>
                     </li>
                     <li>
-                        <a href="login.php"> Login & Subscribe </a>
+                        <a href="login.php"> Login, Subscribe! </a>
                     </li>
                 </ul>
             </div>
@@ -92,10 +83,8 @@ $email = $_POST["email"];
     <!-- Gallery display section-->
     <div class ="container">
         <div class = "row">
+            
     <?php
-    
-    
-    //print "HTML BODY, repeat the useremail: " . $email ;
 
     require 'vendor/autoload.php';
 
@@ -111,7 +100,7 @@ $email = $_POST["email"];
 
     $endpoint = $result['DBInstances'][0]['Endpoint']['Address'];
     //this line could be reached so far
-    //echo "Debugging info: begin mySQL connection after this line printed out";
+   
     //error happens during db connection
     $link = mysqli_connect($endpoint,"LN1878","hesaysmeow","simmoncatdb") or die ("The link failed to connect to db" . mysqli_error($link));
     //check connection
@@ -127,32 +116,11 @@ $email = $_POST["email"];
     while ($row = $res->fetch_assoc()) {
         #adding effects here
     $urlINFO = "<img src =\" " . $row['RAWS3URL'] . "\" />";
-   
-    
-    #$tobeadded = "<img src =\" " . $row['FINISHEDS3URL'] . "\"/>";
-    #echo $urlINFO;
-    #print "----------- line 110 in Gallery -----------";
 
     $imageSTR = "#UID-" . $row['ID'] . ": " . "Email: " . $row['EMAIL']; //to be used into CSS containers
-    #echo $imageSTR;
-    #print "----------- line 114 in Gallery -----------";
-    #$link->close();
-     
-    
+ 
 	?>
-    <?php 
-    /* commenting out testing frames
-    </font>
-	<br>
-	<font color="#00FF00">&nbsp;&nbsp;  Uploaded image: <br>
-	<?php #echo $urlINFO; ?>
-	</font> 
-	<br>
-		<font color = "white">&nbsp;&nbsp; Record info: <br>
-		<?php echo #$imageSTR; ?>
-	</font>
-    */ 
-    ?>
+  
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                 <a class="thumbnail" href="#">
                     <?php echo $urlINFO; ?> 

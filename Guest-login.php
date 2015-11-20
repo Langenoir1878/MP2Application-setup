@@ -52,7 +52,7 @@
 				<p>This is the guest page</p>
 				<p>The guest system won't automatically subscribe to this application</p><br>
 				<p>This page will automatically prepare the database for user</p>
-				<p>Please <a href= "login.php"> Log In </a> & subscribe! </p><br>
+				<p>Please <a href= "login.php"><font color = "pink"> Log In </font></a> & subscribe! </p><br>
 				<p><font color = "grey"> ITMP 544 MP-2 15Fall </font></p>
 				<br>
 				<br><br><br>
