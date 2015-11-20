@@ -70,7 +70,7 @@ $debug = $link->query($sqlSTETEMENTstr);
 if ($debug){
   $successMsg = "CAT_TABLE created";
 } 
-else { $failureMsg = "Create table failed"; }
+else { $failureMsg = "Table exists"; }
 
 $link->close();
 
@@ -105,7 +105,7 @@ $link->close();
 
 <body>
 
-	//log out option
+	
 	<div style="text-align:right">
 	<font color = "white"><?php echo 'Hi, '. $_SESSION['user'] . ' !'; ?></font>
 	&nbsp;&nbsp;&nbsp;
