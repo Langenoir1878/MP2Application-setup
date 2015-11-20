@@ -5,9 +5,13 @@
  * Last updated: Nov 15,2015
  */
 
-//session_start();
+//namespace langenoir1878;
 
-//$email = $_POST["email"];
+session_start();
+
+
+$email = $_POST["email"];
+# Found this error finally on Nov 15 !!!!!!!! missed '_'!!!!!!!
 
 
 ?>
@@ -45,13 +49,9 @@
                 </button>
                 <a class="navbar-brand" href="#">
                     <?php 
-                    //generate a random id for guest and display:
-                    $randID = int rand(1000,2000);
-                    print "Welcome, guest_" . $randID . " !";
-
+                        print $email ;
                     ?>
                 </a>
-        
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -61,10 +61,7 @@
                         <a href="Guest-index.php">INDEX</a>
                     </li>
                     <li>
-                        <a href="Guest-profile.php">Designer PROFILE</a>
-                    </li>
-                    <li>
-                        <a href="login.php"> Login, Subscribe! </a>
+                        <a href="Guest-profile.php">PROFILE</a>
                     </li>
                 </ul>
             </div>
@@ -83,8 +80,10 @@
     <!-- Gallery display section-->
     <div class ="container">
         <div class = "row">
-            
     <?php
+    
+    
+    //print "HTML BODY, repeat the useremail: " . $email ;
 
     require 'vendor/autoload.php';
 
@@ -100,7 +99,7 @@
 
     $endpoint = $result['DBInstances'][0]['Endpoint']['Address'];
     //this line could be reached so far
-   
+    //echo "Debugging info: begin mySQL connection after this line printed out";
     //error happens during db connection
     $link = mysqli_connect($endpoint,"LN1878","hesaysmeow","simmoncatdb") or die ("The link failed to connect to db" . mysqli_error($link));
     //check connection
@@ -116,11 +115,32 @@
     while ($row = $res->fetch_assoc()) {
         #adding effects here
     $urlINFO = "<img src =\" " . $row['RAWS3URL'] . "\" />";
+   
+    
+    #$tobeadded = "<img src =\" " . $row['FINISHEDS3URL'] . "\"/>";
+    #echo $urlINFO;
+    #print "----------- line 110 in Gallery -----------";
 
     $imageSTR = "#UID-" . $row['ID'] . ": " . "Email: " . $row['EMAIL']; //to be used into CSS containers
- 
+    #echo $imageSTR;
+    #print "----------- line 114 in Gallery -----------";
+    #$link->close();
+     
+    
 	?>
-  
+    <?php 
+    /* commenting out testing frames
+    </font>
+	<br>
+	<font color="#00FF00">&nbsp;&nbsp;  Uploaded image: <br>
+	<?php #echo $urlINFO; ?>
+	</font> 
+	<br>
+		<font color = "white">&nbsp;&nbsp; Record info: <br>
+		<?php echo #$imageSTR; ?>
+	</font>
+    */ 
+    ?>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                 <a class="thumbnail" href="#">
                     <?php echo $urlINFO; ?> 
