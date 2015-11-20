@@ -114,7 +114,7 @@ $link->close();
     </div>
     <div class = "left_side">
 
-<form enctype="multipart/form-data" action="result.php" method="POST">
+<form enctype="multipart/form-data" action="Guest-result.php" method="POST">
     <!-- MAX_FILE_SIZE must precede the file input field -->
     <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
     <!-- Name of input element determines name in $_FILES array -->
@@ -131,7 +131,7 @@ Enter Phone of user: </font><input type="phone" name="phone">
 </form>
 <br>
 
-<form enctype="multipart/form-data" action="gallery.php" method="POST">
+<form enctype="multipart/form-data" action="Guest-gallery.php" method="POST">
   
   <br><font color = "white">  
 Enter Email of user for gallery to browse: </font>
