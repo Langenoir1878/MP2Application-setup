@@ -10,16 +10,7 @@
  * 
  */
 
-//namespace langenoir1878;
-session_start();
-
-if(!isset($_SESSION['user']))
-{
-    header("Location: login.php");
-    exit;
-}
 ?>
-
 <?php
 // setting up the db table
 require 'vendor/autoload.php';
@@ -107,9 +98,12 @@ $link->close();
 
 	
 	<div style="text-align:right">
-	<font color = "white"><?php echo 'Hi, '. $_SESSION['user'] . ' !'; ?></font>
-	&nbsp;&nbsp;&nbsp;
-	<a href="login.php?logout=yes">logout</a>
+	<font color = "white"><?php 
+    //echo 'Hi, '. $_SESSION['user'] . ' !'; 
+    print "Welcome";
+    ?></font>
+	&nbsp;&nbsp;&nbsp; 
+	<a href="login.php">Log In & Subscribe!</a>
 	&nbsp;&nbsp;&nbsp;&nbsp;
 	</div>
 	
