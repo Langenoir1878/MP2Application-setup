@@ -12,16 +12,6 @@
  */
 
 
-
-// Start the session
-
-//namespace langenoir1878;
-session_start();
-if(!isset($_SESSION['user']))
-{
-    header("Location: login.php");
-    exit;
-}
 // In PHP versions earlier than 4.1.0, $HTTP_POST_FILES should be used instead
 // of $_FILES.
 ?>
@@ -55,7 +45,7 @@ if(!isset($_SESSION['user']))
 <body>
 <div class = "lay_content">
    <font color = "white"> <h1>File Uploading Result</h1></font>
-    <font color = "white"><a href = "index.php">Go back to the INDEX </a></font>
+    <font color = "white"><a href = "Guest-index.php">Go back to the INDEX </a></font>
 </div>
 
 <div class = "left_side">
@@ -153,28 +143,6 @@ if (!$stmt->execute()) {
     echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 }
 printf("%d Row inserted.\n", $stmt->affected_rows);
-
-//obtaining the input email from page:
-#$myEmail = $_POST['useremail'];
-
-//SNS
-#$sns = new Aws\Sns\SnsClient([
-#    'version' => 'latest',
- #   'region'  => 'us-east-1'
-#]);
-
-#$Arn = $sns->createTopic([
-#'Name' => 'mp2',
-#]);
-
-#$subscribe = $sns->subscribe([
-#'Protocol' => 'email',
-#'Endpoint' => $myEmail,
-#'TopicArn' => $Arn['TopicArn'],
-#]);
-
-
-
 
 
 
