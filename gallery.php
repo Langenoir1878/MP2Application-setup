@@ -126,16 +126,23 @@ $email = $_POST["email"];
     #print "----------- line 114 in Gallery -----------";
     #$link->close();
      
-    }
-?></font>
-<br><br>
-<font color="#00FF00">&copy;&copy; Uploaded image: <?php echo $urlINFO; ?></font> 
-<br><br><br>
-<font color = "white">&copy;&copy; Uuser info: <br>
-<?php echo $imageSTR; ?>
-</font>
+    
+	?></font>
+	<br>
+	<font color="#00FF00">&nbsp;&nbsp;  Uploaded image: <br>
+	<?php echo $urlINFO; ?>
+	</font> 
+	<br>
+		<font color = "white">&nbsp;&nbsp; Record info: <br>
+		<?php echo $imageSTR; ?>
+	</font>
 
 <?php
+//reopen the php tag to end the while loop
+
+} 
+
+
     $link->close();
 ?>
 
