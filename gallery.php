@@ -82,6 +82,9 @@ $email = $_POST["email"];
 
     <p><font color = "white"><?php #print "Enter the php section . . . "; ?></font></p>
     
+    <!-- Gallery display section-->
+    <div class ="container">
+        <div class = "row">
     <?php
     
     
@@ -158,11 +161,11 @@ $email = $_POST["email"];
     $link->close();
 ?>
 
-    <!-- Page Content -->
-  
+    <!-- /.Page Content -->
+  </div>
 
     <!-- /.container -->
-
+</div>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
